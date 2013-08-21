@@ -1,11 +1,4 @@
-#---
-# Excerpted from "Agile Web Development with Rails",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
-#---
+
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
@@ -39,7 +32,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to store_url }
+        format.js  { @current_item = @line_item }
         format.json { render action: 'show',
           status: :created, location: @line_item }
       else
@@ -48,7 +42,7 @@ class LineItemsController < ApplicationController
           status: :unprocessable_entity }
       end
     end
-  end
+  end                           
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
