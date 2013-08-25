@@ -46,6 +46,10 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+gem 'will_paginate', '~> 3.0'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
                                                                                                           
