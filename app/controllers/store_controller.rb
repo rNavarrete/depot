@@ -8,6 +8,7 @@
 #---
 class StoreController < ApplicationController
 	include CurrentCart
+	skip_before_filter :authorize 
 	before_action :set_cart
   
   def index
